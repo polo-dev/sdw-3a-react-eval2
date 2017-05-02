@@ -19,7 +19,7 @@ export default class ListUsers extends Component {
                 <tbody>
                     {
                         this.props.listUsers.map( item => (
-                        <tr>
+                        <tr  key={item._id}>
                             <td>{item.name}</td>
                             <td>{item.age}</td>
                             <td>{item.type}</td>
