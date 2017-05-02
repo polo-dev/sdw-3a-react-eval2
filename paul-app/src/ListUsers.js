@@ -6,6 +6,22 @@ export default class ListUsers extends Component {
         console.log(props);
     }
 
+    //suppression des utilisateurs
+    deleteUser(e) {
+        e.preventDefault();
+        fetch('https://kickass-sdw-3a.herokuapp.com/api/user/' + e.target.value, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(() => (response) => {
+            console.log(response); 
+        }, console.log('delete user : ' + e.target.value));
+
+       // this.props.componentDidMount();
+    }
+
+    //affichage des utilisateurs
     render() {
         return(
             <table className="table">
@@ -23,6 +39,7 @@ export default class ListUsers extends Component {
                             <td>{item.name}</td>
                             <td>{item.age}</td>
                             <td>{item.type}</td>
+                            <td><button onClick={this.deleteUser} value={item._id}/></td>
                         </tr>
                         ))
                     }

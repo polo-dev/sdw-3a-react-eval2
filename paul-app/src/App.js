@@ -44,8 +44,8 @@ class App extends Component {
           <p className="App-intro">
             To get started, edit <code>src/App.js</code> and save to reload.
           </p>
-          <ListUsers listUsers={this.state.listUsers} />
           <AddUsers listUsers={this.state.listUsers} componentDidMount={this.componentDidMount.bind(this)}/>
+          <ListUsers listUsers={this.state.listUsers}/>
         </div>
       </div>
     );
